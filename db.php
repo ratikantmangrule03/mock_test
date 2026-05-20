@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-$host = getenv('DB_HOST') ?: 'mocktest-ratikantmangrule.a.aivencloud.com';
-$port = getenv('DB_PORT') ?: '25821'; // FALLBACK CHANGED TO YOUR REAL PORT
-$db   = getenv('DB_NAME') ?: 'defaultdb';
-$user = getenv('DB_USER') ?: 'avnadmin';
-$pass = getenv('DB_PASS') ?: '';
+$host = getenv('DB_HOST');
+$port = getenv('DB_PORT'); 
+$db   = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
 
-// Added 'port=$port' and 'sslmode=require' (Aiven requires strict SSL)
+// Strict PostgreSQL connection string with SSL required
 $dsn = "pgsql:host=$host;port=$port;dbname=$db;sslmode=require;options='--client_encoding=UTF8'";
 
 $options = [
