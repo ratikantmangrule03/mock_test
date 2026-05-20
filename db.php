@@ -2,12 +2,13 @@
 session_start();
 
 $host = getenv('DB_HOST') ?: '127.0.0.1';
+$port = getenv('DB_PORT') ?: '5432'; // Added dynamic port
 $db   = getenv('DB_NAME') ?: 'mock_portal';
 $user = getenv('DB_USER') ?: 'root';
 $pass = getenv('DB_PASS') ?: '';
 
-// CHANGED: 'mysql' is now 'pgsql'
-$dsn = "pgsql:host=$host;dbname=$db;options='--client_encoding=UTF8'";
+// Added 'port=$port' and 'sslmode=require' (Aiven requires strict SSL)
+$dsn = "pgsql:host=$host;port=$port;dbname=$db;sslmode=require;options='--client_encoding=UTF8'";
 
 $options = [
  PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
