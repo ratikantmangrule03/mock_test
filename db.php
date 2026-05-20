@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-$host = getenv('DB_HOST') ?: '127.0.0.1';
-$port = getenv('DB_PORT') ?: '5432'; // Added dynamic port
-$db   = getenv('DB_NAME') ?: 'mock_portal';
-$user = getenv('DB_USER') ?: 'root';
+$host = getenv('DB_HOST') ?: 'mocktest-ratikantmangrule.a.aivencloud.com';
+$port = getenv('DB_PORT') ?: '25821'; // FALLBACK CHANGED TO YOUR REAL PORT
+$db   = getenv('DB_NAME') ?: 'defaultdb';
+$user = getenv('DB_USER') ?: 'avnadmin';
 $pass = getenv('DB_PASS') ?: '';
 
 // Added 'port=$port' and 'sslmode=require' (Aiven requires strict SSL)
